@@ -33,7 +33,7 @@ const getPersona = async (req,res) =>{
 const createPersona = async (req,res) =>{
     try {
         const {nombre,apellido,telefono} = req.body
-        const sql = "INSERT INTO Persona(nombre_p,apellido_p,telefono) VALUES(?,?,?)";
+        const sql = "INSERT INTO Personas(nombre_p,apellido_p,telefono) VALUES(?,?,?)";
         const [rows] = await conection.query(sql,[nombre,apellido,telefono])
         res.send({rows})
     } catch (error) {
@@ -47,7 +47,7 @@ const updatePersona = async (req,res) =>{
     try {
         const id = req.params.id
         const {nombre,apellido,telefono} = req.body
-        const sql = "UPDATE Persona SET nombre_p =?,apellido_p =?,telefono =? WHERE id =?";
+        const sql = "UPDATE Personas SET nombre_p =?,apellido_p =?,telefono =? WHERE id =?";
         const [rows] = await conection.query(sql,[nombre,apellido,telefono,id]);
         res.send({rows})
     } catch (error) {
@@ -60,7 +60,7 @@ const updatePersona = async (req,res) =>{
 const deletePersona = async (req,res) =>{
     try {
         const id = req.params.id
-        const sql = "DELETE FROM Persona WHERE id=?";
+        const sql = "DELETE FROM Personas WHERE id=?";
         const [rows] = await conection.query(sql,[id]);
         res.send({rows})
     } catch (error) {
