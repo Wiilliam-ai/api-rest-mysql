@@ -32,9 +32,9 @@ const getPersona = async (req,res) =>{
 
 const createPersona = async (req,res) =>{
     try {
-        const {nombre,apellido,telefono,cargo} = req.body
-        const sql = "INSERT INTO Persona(nombre_p,apellido_p,telefono,id_cargo) VALUES(?,?,?,?)";
-        const [rows] = await conection.query(sql,[nombre,apellido,telefono,cargo])
+        const {nombre,apellido,telefono} = req.body
+        const sql = "INSERT INTO Persona(nombre_p,apellido_p,telefono) VALUES(?,?,?)";
+        const [rows] = await conection.query(sql,[nombre,apellido,telefono])
         res.send({rows})
     } catch (error) {
         return res.status(500).json({
