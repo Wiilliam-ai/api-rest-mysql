@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 app.use("/api",personas)
-app.use("/api",docentes)
+app.use("/api2",docentes)
 
 app.use((req,res,next)=>{
     res.status(404).json({
